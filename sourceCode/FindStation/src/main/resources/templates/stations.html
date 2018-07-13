@@ -1,0 +1,78 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/header :: header}">
+</head>
+<body>
+
+
+<div id="mainContainer" class="container">
+	<div id="mainContainerRepleace" class="row">
+	<h2>Station Details</h2>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th data-field="id">ID</th>
+					<th data-field="elevation">Elevation</th>
+					<th data-field="name">Name</th>
+					<th data-field="latitude">Latitude</th>
+					<th data-field="longitude">Longitude</th>
+					<th data-field="state">State</th>
+
+				</tr>
+			</thead>
+			<tbody>
+			
+
+				<tr th:each="station : ${model.station}">
+					<td th:text="${station.id}">US1345m0000</td>
+					<td th:text="${station.elevation}">1</td>
+					<td th:text="${station.name}">name</td>
+					<td th:text="${station.latitude}">0000</td>
+					<td th:text="${station.longitude}">0000</td>
+					<td th:text="${station.state}">state</td>
+				</tr>
+
+			</tbody>
+
+		</table>
+		
+
+	</div>
+	<div>
+	<table class="table table-striped">
+			<thead>
+				<tr>
+					<th data-field="id">ID</th>
+					<th data-field="date">Date</th>
+					<th data-field="name">Attribute</th>
+					<th data-field="description">Description</th>
+					<th data-field="value">Value</th>
+					
+
+				</tr>
+			</thead>
+			<h2>Number of Weather Data Found <p th:text="${model.elementsList.size()}"></p></h2>
+			<tbody>
+                 <tr th:if="${model.elementsList.size()} eq 0">
+					<td colspan="2">No data available.</td>
+				</tr>
+			
+				<tr th:each="element : ${model.elementsList} ">
+					<td th:text="${element.stationid}">US1345m0000</td>
+					<td th:text="${element.datestring}">1</td>
+					<td th:text="${element.attribute}">attribute</td>
+					<td th:text="${element.getAttributeName(element.attribute)}"></td>
+					<td th:text="${element.value}">value</td>
+				</tr>
+
+			</tbody>
+
+		</table>
+	</div>
+</div>
+
+
+<div th:replace="~{fragments/footer :: footer}">...</div>
+</body>
+
+</html>
