@@ -124,6 +124,3 @@ Yinchen Li
 - CMU Graduate student
 - Date Created: 2018.07.13
 - Email: careeryinchenli@gmail.com
-- Cell: 412-518-2276
-
-# FindStation
